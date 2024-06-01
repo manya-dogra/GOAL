@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            scroll-margin-block-start: 90px;
+            padding: 0;
+            /* Reset default padding */
+            margin: 0;
+            /* Reset default margin */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('C:\Users\anjal\OneDrive\Pictures\organ image.jpg');
+            /* Replace 'path_to_your_background_image.jpg' with the actual path to your image */
+            background-size: cover;
+            /* Cover the entire viewport */
+            background-position: center;
+            /* Center the background image */
+        }
+
+        #dashboard-container {
+            width: 80%;
+            /* Adjust width as needed */
+            background-color: rgba(255, 255, 255, 0.8);
+            /* Add transparency to the background color */
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 10px solid black;
+            /* Add border here */
+            overflow: hidden;
+            /* Prevent child content from overflowing */
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            /* Arrange children in a column */
+            align-items: center;
+        }
+
+        #logo {
+            position: absolute;
+            /* Position the logo absolutely */
+            top: 20px;
+            /* Adjust top position */
+            left: 20px;
+            /* Adjust left position */
+            width: 300px;
+            /* Increase the width of the logo */
+            z-index: 9999;
+            /* Ensure the logo stays on top of other elements */
+            border: 5px solid black;
+            /* Add black border around the logo */
+        }
+
+        #profile-section {
+            padding: 40px 60px;
+            /* Adjust left padding to shift content to the left */
+            margin-right: 50px;
+            /* Shift margin to the top */
+        }
+
+        #profile-section h2 {
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        #personal-info {
+            font-size: 1.1em;
+            color: #555;
+            /* Changed to a darker color for better readability */
+        }
+
+        #map-container {
+            flex: 1;
+            width: 100%;
+            /* Take up full width */
+            height: 400px;
+            /* Set height as needed */
+            margin-top: 20px;
+            /* Add some space above the map */
+        }
+
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dashboard-container">
+        <img id="logo" src="C:\Users\anjal\Downloads\2 (1).png" alt="Project Logo">
+        <!-- Replace "path_to_your_logo.png" with the actual path to your logo image -->
+        <div id="profile-section">
+            <h2>User Profile</h2>
+            <img src="profile.jpg" alt="Your picture">
+            <div id="personal-info">
+                <p><strong>Name:</strong> <span id="name"></span></p>
+                <p><strong>Email:</strong> <span id="email"></span></p>
+                <p><strong>Location:</strong> <span id="location"></span></p>
+                <p><strong>Age:</strong> <span id="age"></span></p>
+                <!-- Add more personal information as needed -->
+            </div>
+        </div>
+        <div id="map-container"></div>
+    </div>
+    <h1>Best Hospitals Map</h1>
+
+    <div id="map"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const apiUrl = 'http://localhost:3000/userData'; // Replace with your backend API endpoint URL
+
+    // Fetch data from the backend
+    fetch(apiUrl)
+        .then(response => {
+            // Check if the response is successful
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            // Parse the JSON response
+            return response.json();
+        })
+        .then(data => {
+            // Update the profile section with the fetched data
+            document.getElementById('name').textContent = data.name;
+            document.getElementById('email').textContent = data.email;
+            document.getElementById('location').textContent = data.location;
+            document.getElementById('age').textContent = data.age;
+            // Update other personal information as needed
+        })
+        .catch(error => {
+            // Handle any errors that occurred during the fetch
+            console.error('There was a problem fetching data:', error.message);
+        });
+});
+
+    </script>
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // Specify the coordinates to center the map
+            var center = { lat: 29.98610, lng: 76.84322 }; // New York City coordinates
+
+            // Create a map object and specify the DOM element for display
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: center,
+                zoom: 10 // Adjust the zoom level as needed
+            });
+
+            // Sample hospital data (replace with your actual data)
+            var hospitals = [
+                { name: 'Hospital A', lat: 29.98610, lng: 76.84322 },
+                { name: 'Hospital B', lat: 29.97651, lng: 76.86163 },
+                { name: 'Hospital C', lat: 29.99904, lng: 77.04891 },
+                { name: 'Hospital D', lat: 31.38617891983263, lng: 75.59960876585934 },
+                { name: 'Hospital E', lat: 31.52090188760215, lng: 75.95529114299873 },
+
+
+                // Add more hospitals as needed
+            ];
+
+            // Add markers for each hospital
+            hospitals.forEach(function (hospital) {
+                var marker = new google.maps.Marker({
+                    position: { lat: hospital.lat, lng: hospital.lng },
+                    map: map,
+                    title: hospital.name
+                });
+
+                // Add info window for each marker
+                var infoWindow = new google.maps.InfoWindow({
+                    content: '<h3>' + hospital.name + '</h3>'
+                });
+
+                marker.addListener('click', function () {
+                    infoWindow.open(map, marker);
+                });
+            });
+        }
+    </script>
+
+    <!-- Load the Google Maps JavaScript API -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChgg9rvdYvHbrRTrZgJPq5dlPMxPu35qo&callback=initMap">
+        </script>
+
+
+    <!-- Your JavaScript code goes here -->
+   
+
+</body>
+
+</html>

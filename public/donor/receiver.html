@@ -1,0 +1,169 @@
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organ Receiver Form</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  form {
+    background-color: #fff;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  input[type="text"], input[type="email"], input[type="number"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  input[type="submit"], button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+</style>
+</head>
+<body>
+
+<form action="http://localhost:3000/submitForm" method="post">
+  <fieldset style="width:580px;">
+    <legend><b>Registration Form</b></legend>
+    <h2>Organ Receiver Form</h2>
+  
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" name="fullName" required>
+  
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+  
+    <label for="parentsName">Parents Name/Guardian name:</label>
+    <input type="text" id="parentsName" name="parentsName" required>
+  
+    <div>
+      <label for="dob">Date Of Birth:</label>
+      <input type="date" id="dob" name="dob" required>
+    </div>
+    <br>
+  
+    <div>
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required>
+    </div>
+    <br>
+  
+    <div>
+      <label>Gender:</label><br>
+      <input type="radio" id="male" name="gender" value="male" required>
+      <label for="male">Male</label>
+      <input type="radio" id="female" name="gender" value="female" required>
+      <label for="female">Female</label>
+      <input type="radio" id="other" name="gender" value="other" required>
+      <label for="other">Other</label>
+    </div>
+    <br>
+  
+    <div>
+      <label for="bloodType">Blood Type:</label>
+      <input type="text" id="bloodType" name="bloodType" required>
+    </div>
+    <br>
+  
+    <div>
+      <label for="mobileNumber">Mobile Number:</label>
+      <input type="tel" id="mobileNumber" name="mobileNumber" required>
+    </div>
+    <br>
+  
+    <div>
+      <label for="otherContactNumber">Other Contact Number:</label>
+      <input type="tel" id="otherContactNumber" name="otherContactNumber" required>
+    </div>
+    <br>
+  
+    <label for="address">Home Address:</label>
+    <input type="text" id="address" name="address" required>
+  
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" required>
+  
+    <label for="district">District:</label>
+    <input type="text" id="district" name="district" required>
+  
+    <label for="state">State:</label>
+    <input type="text" id="state" name="state" required>
+  
+    <div>
+      <label for="pinCode">Pin Code:</label>
+      <input type="text" id="pinCode" name="pinCode" required>
+    </div>
+    <br>
+  
+    <div>
+      <label for="occupation">Occupation:</label>
+      <select id="occupation" name="occupation" required>
+        <option value="">Select...</option>
+        <option value="Business">Business</option>
+        <option value="Government Employed">Government Employed</option>
+        <option value="Farmer">Farmer</option>
+        <option value="Student">Student</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+  
+    <div>
+      <label for="aadharNumber">Aadhar Card Number:</label>
+      <input type="text" id="aadharNumber" name="aadharNumber" required>
+    </div>
+    <br>
+  
+    <div>
+      <label for="organNeeded">Organ Needed:</label>
+      <input type="text" id="organNeeded" name="organNeeded" required>
+    </div>
+  
+    <div>
+      <label for="currentMedications">Current medications:</label>
+      <textarea id="currentMedications" name="currentMedications" required></textarea>
+    </div>
+    <br>
+  
+    <div>
+      <label for="concern">Your concern:</label><br>
+      <textarea id="concern" name="concern" cols="30"></textarea>
+    </div>
+    <br>
+  
+    <div class="Receiver checkbox">
+      <input type="checkbox" name="privacyPolicy" id="privacyPolicy" required>
+      <label for="privacyPolicy">I agree to the privacy policy</label>
+    </div>
+  <input type="submit" value="submit">
+    <!-- <button type="submit" id="button">Submit</button> -->
+   <!-- <a href="Thanks.html">Register</a>-->
+  
+  </fieldset>
+</form>
+</body>
+</html>

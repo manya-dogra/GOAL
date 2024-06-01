@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top 10 Doctors</title>
+<style>
+    /* Basic styling for the page */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+    }
+    h1 {
+        text-align: center;
+    }
+    .doctor {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+</style>
+</head>
+<body>
+
+<h1>Top 10 Doctors</h1>
+
+<div id="doctors"></div>
+
+<script>
+// Sample data for doctors (replace with your actual data)
+const doctors = [
+    { name: 'Dr. Vivek Jawali', specialty: 'A renowned cardiothoracic and vascular surgeon', hospital: 'Fortis Hospitals.', location: 'Bangalore', contact: '123-456-7890' },
+    { name: 'Dr. Sanjay Nagral', specialty: 'hepatobiliary and transplant surgeon ', hospital: 'Jaslok Hospita', location: 'Mumbai', contact: '987-654-3210' },
+    { name: 'Dr. Sunil Shroff', specialty: 'pioneer in the field of transplant surgery', hospital: 'MOHAN Foundation', location: 'Bangalore', contact: '123-456-7890' },
+    { name: 'Dr. A. S. Soin', specialty: 'renowned liver transplant surgeon ', hospital: 'The Medicity ', location: 'Gurgaon', contact: '123-456-7890' },
+    { name: 'Dr. Anupam Sibal', specialty: ' pediatric gastroenterologist and hepatologist ', hospital: 'Apollo Hospitals', location: 'Delhi', contact: '123-456-7890' },
+    { name: 'Dr. Arvinder Singh Soin', specialty: 'liver transplant surgeon ', hospital: 'Apollo Hospitals', location: 'Delhi', contact: '123-456-7890' },
+    { name: 'Dr. Mohamed Rela', specialty: 'liver transplant surgeon ', hospital: 'Global Hospitals', location: 'Chennai', contact: '123-456-7890' },
+    // Add more doctors as needed
+];
+
+// Function to display top 10 doctors
+function displayDoctors() {
+    const doctorsContainer = document.getElementById('doctors');
+
+    // Iterate through the list of doctors and create HTML elements to display their information
+    doctors.forEach((doctor, index) => {
+        if (index < 10) { // Display only the top 10 doctors
+            const doctorDiv = document.createElement('div');
+            doctorDiv.classList.add('doctor');
+            doctorDiv.innerHTML = `
+                <h3>${doctor.name}</h3>
+                <p>Specialty: ${doctor.specialty}</p>
+                <p>Hospital: ${doctor.hospital}</p>
+                <p>Location: ${doctor.location}</p>
+                <p>Contact: ${doctor.contact}</p>
+            `;
+            doctorsContainer.appendChild(doctorDiv);
+        }
+    });
+}
+
+// Call the displayDoctors function when the page loads
+window.onload = displayDoctors;
+</script>
+
+</body>
+</html>

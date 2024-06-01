@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    scroll-margin-block-start: 90px;
+    padding: 0; /* Reset default padding */
+    margin: 0; /* Reset default margin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('C:\Users\anjal\OneDrive\Pictures\organ image.jpg'); /* Replace 'path_to_your_background_image.jpg' with the actual path to your image */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the background image */
+}
+
+
+.login{
+border: 1.5px solid transparent;
+border-radius: 4px;
+color: black;
+text-align: center;
+padding: 16px;
+width: 220px;
+transition: all 0.5s;
+cursor: pointer;
+margin: 36px;
+box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+}
+
+
+
+.navbar{
+height: 80px;
+background-color:#0658A2;
+color: white;
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+position: fixed;
+top: 0;
+width: 100%;
+z-index: 1000;
+
+}
+
+.border{
+border: 1.5px solid transparent;
+border-radius: 4px;
+color: #fff;
+text-align: center;
+padding: 16px;
+width: 220px;
+transition: all 0.5s;
+cursor: pointer;
+margin: 36px;
+box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+}
+
+.border:hover{
+border: 1.5px solid white;
+
+
+}
+
+.border{
+cursor: pointer;
+display: inline-block;
+position: relative;
+transition: 0.5s;
+}
+
+.border:after {
+content: '»';
+position: absolute;
+opacity: 0;  
+top: 14px;
+right: -20px;
+transition: 0.5s;
+}
+
+.border:hover{
+padding-right: 24px;
+padding-left:8px;
+}
+
+.border:hover:after {
+opacity: 1;
+right: 10px;
+}
+
+.dashboard-container {
+    width: 100%; /* Adjust width as needed */
+    background-color: rgba(255, 255, 255, 0.8); /* Add transparency to the background color */
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Add border here */
+    overflow: hidden; /* Prevent child content from overflowing */
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Arrange children in a column */
+    align-items: center;
+    margin-top: 100px;
+    font-size: larger;
+}
+
+.profile-section{
+    height: 250px;
+    border: 5px solid black;
+    width: 800px;
+    text-align: center;
+    font-size: larger;
+    font-weight: bolder;
+    padding-top: 10px;
+}
+
+#logo {
+    position: absolute; /* Position the logo absolutely */
+    top: 20px; /* Adjust top position */
+    left: 20px; /* Adjust left position */
+    width: 300px; /* Increase the width of the logo */
+    z-index: 9999; /* Ensure the logo stays on top of other elements */
+    border: 5px solid black; /* Add black border around the logo */
+}
+
+#profile-section {
+    padding: 40px 60px; /* Adjust left padding to shift content to the left */
+    margin-right: 50px; /* Shift margin to the top */
+}
+
+#profile-section h2 {
+    margin-bottom: 50px;
+    color: #333;
+}
+
+#personal-info {
+    font-size: 1.1em;
+    color: #555; /* Changed to a darker color for better readability */
+}
+
+#map-container {
+    flex: 1;
+    width: 100%; /* Take up full width */
+    height: 400px; /* Set height as needed */
+    margin-top: 20px; /* Add some space above the map */
+}
+
+#map {
+height: 400px;
+width: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+.doctor {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.doctors{
+    display: flex;
+    flex-wrap: wrap;
+}
+
